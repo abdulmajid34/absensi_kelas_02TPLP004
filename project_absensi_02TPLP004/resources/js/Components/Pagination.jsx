@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react';
 
 export default function pagination({ links }) {
     return (
-        <div className='flex mt-8 space-x-2'>
+        <div className='flex mt-8 justify-center space-x-2'>
             {links.map((link, index) => (
                 <Link
                     key={index}
