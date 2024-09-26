@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react';
 import Pagination from '@/Components/Pagination';
 import { Link } from '@inertiajs/react';
 
-export default function UserIndex({ users }) {
+export default function UserIndex({ users, auth }) {
     return (
         <AuthenticatedLayout
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">List Users</h2>}
@@ -31,6 +31,7 @@ export default function UserIndex({ users }) {
                                         <th className='px-6 py-3 text-left text-lg font-medium text-black'>Name</th>
                                         <th className='px-6 py-3 text-left text-lg font-medium text-black'>Email</th>
                                         <th className='px-6 py-3 text-left text-lg font-medium text-black'>Role</th>
+                                        <th className='px-6 py-3 text-left text-lg font-medium text-black'>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,7 +41,13 @@ export default function UserIndex({ users }) {
                                                 <td className='px-6 py-4 whites[ace-nowrap'>{user.id}</td>
                                                 <td className='px-6 py-4 whites[ace-nowrap'>{user.name}</td>
                                                 <td className='px-6 py-4 whites[ace-nowrap'>{user.email}</td>
-                                                <td className='px-6 py-4 whites[ace-nowrap'>-</td>
+                                                <td className='px-6 py-4 whites[ace-nowrap'>{user.role}</td>
+                                                <td className='px-6 py-4 whites[ace-nowrap'>
+                                                    <Link className='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150' 
+                                                    href={route("users.edit", user.id)}>
+                                                        Edit
+                                                    </Link>
+                                                </td>
                                             </tr>
                                         ))
                                     }
